@@ -34,6 +34,8 @@ for (const event of data) {
     }
 }
 
+console.log("Total Infected events", totalInfectedPayload);
+
 console.log("dayDenyCount", dayEventCount);
 console.log(getTop5(dayUserCount));
 
