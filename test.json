@@ -1,0 +1,38 @@
+{
+  "_id": "R64pU0wj6v",
+  "eventId": "cbec7770-534c-4242-a5ae-56c4f8b4dc63:1674748384975",
+  "_created_at": {
+    "$date": {
+      "$numberLong": "1674748457033"
+    }
+  },
+  "action": "deny",
+  "appVersion": "8.0.200.3",
+  "destinationIp": "91.212.136.200",
+  "deviceId": "fvffdtmkq05d",
+  "deviceName": "Vitali’s M1",
+  "deviceType": "desktop",
+  "eventName": "traffic|swg|malware_protection|infected_payload",
+  "eventTime": {
+    "$date": {
+      "$numberLong": "1674748384975"
+    }
+  },
+  "fileName": "eicar_com.zip",
+  "infectionName": "EICAR-Test-File (not a virus)",
+  "infectionType": "VIRUS",
+  "mimeType": "application/zip",
+  "payloadSize": {
+    "$numberInt": "184"
+  },
+  "privateIp": "192.168.100.5",
+  "publicIp": "188.227.194.188",
+  "sourceApplicationName": "com.google.Chrome.helper",
+  "tenantId": "jarvis2021",
+  "url": "www.ikarussecurity.com/wp-content/downloads/eicar_com.zip",
+  "urlCategory": [],
+  "userEmail": "vitali.shchur@perimeter81.com",
+  "userId": "cppmANSAzb",
+  "userName": "Vitali Shchur",
+  "userType": "member"
+}
