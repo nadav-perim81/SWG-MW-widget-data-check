@@ -16,18 +16,22 @@ const monthUserCount = new Map();
 
 for (const event of data) {
     const eventDate = moment(event.eventTime);
-    if (withinDay(eventDate)) {
+    if (withinDay(eventDate) && isInfectedEvent(event)) {
         countUser(dayUserCount, event);
         dayEventCount++;
     }
-    if (withinWeek(eventDate)) {
+    if (withinWeek(eventDate) && isInfectedEvent(event)) {
         countUser(weekUserCount, event);
         weekEventCount++;
     }
-    if (withinMonth(eventDate)) {
+    if (withinMonth(eventDate) && isInfectedEvent(event)) {
         countUser(monthUserCount, event);
         monthEventCount++;
     }
+}
+
+function isInfectedEvent(event) {
+    return event.eventName === 'traffic|swg|malware_protection|infected_payload';
 }
 
 console.log("dayDenyCount", dayEventCount);
