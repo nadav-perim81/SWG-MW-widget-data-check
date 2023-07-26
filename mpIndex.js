@@ -9,6 +9,7 @@ const monthFrom = now.clone().add(-1, 'months');
 let dayEventCount = 0;
 let weekEventCount = 0;
 let monthEventCount = 0;
+let totalInfectedPayload = 0;
 
 const dayUserCount = new Map();
 const weekUserCount = new Map();
@@ -16,6 +17,9 @@ const monthUserCount = new Map();
 
 for (const event of data) {
     const eventDate = moment(event.eventTime);
+    if (isInfectedEvent(event)) {
+        totalInfectedPayload++;
+    }
     if (withinDay(eventDate) && isInfectedEvent(event)) {
         countUser(dayUserCount, event);
         dayEventCount++;
@@ -30,10 +34,6 @@ for (const event of data) {
     }
 }
 
-function isInfectedEvent(event) {
-    return event.eventName === 'traffic|swg|malware_protection|infected_payload';
-}
-
 console.log("dayDenyCount", dayEventCount);
 console.log(getTop5(dayUserCount));
 
@@ -43,6 +43,7 @@ console.log(getTop5(weekUserCount));
 console.log("monthDenyCount", monthEventCount);
 console.log(getTop5(monthUserCount));
 
+
 function countUser(userCounter, event) {
     const userName = event.userName;
     const currentUserCount = userCounter.get(userName)
@@ -51,6 +52,10 @@ function countUser(userCounter, event) {
     } else {
         userCounter.set(userName, 1);
     }
+}
+
+function isInfectedEvent(event) {
+    return event.eventName === 'traffic|swg|malware_protection|infected_payload';
 }
 
 function getTop5(countMap) {
